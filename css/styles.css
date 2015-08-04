@@ -29,15 +29,15 @@ text-align: center;
 	margin-left: 2.5em;
 	margin-right: 2.5em;
 	background-color: #303F9F;
-	border: 1px solid white;
+	border: 1.5px solid white;
 	color: white;
 	border-radius:5px;
 	display: inline-block;
 	font-size: 1em;
-	letter-spacing: 1px
-
+	letter-spacing: 1px;
 
 }
+
 .bleft {
 	float: left;
 
@@ -65,3 +65,21 @@ text-align: center;
 	letter-spacing: 1.5px;
 }
 
+.arrowleft {
+ margin-left: .575em;
+ opacity: .6;
+}
+
+.arrowright {
+	margin-right: .575em;
+	opacity:.6;
+}
+
+.intro-wrap {
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+	border: 1px dotted black;
+	margin-top:3em;
+	padding:1em;
+}
