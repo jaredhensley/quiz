@@ -77,7 +77,7 @@ text-align: center;
 .intro-wrap {
 	width: 50%;
 	margin: 0 auto;
-	margin-top:7em;
+	margin-top:6em;
 	padding:1em;
 	border: 1px dotted black;
 	background-color: #C5CAE9;
@@ -87,6 +87,7 @@ text-align: center;
 .intro {
 	text-align: center;
 	letter-spacing: .6px;
+	font-size: 1.25em;
 }
 
 .intro-bottom {
