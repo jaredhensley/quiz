@@ -1,0 +1,49 @@
+body {
+background-color: #3F51B5;
+}
+
+.container {
+	background-color: white;
+	height:31em;
+	width:53em;
+	margin: 8em auto;
+	border-radius:10px;
+}
+
+.topbar {
+height: 69px;
+width: 53em;
+background-color: #303F9F;
+
+}
+
+.bstyle {
+	height: 41px;
+	width: 88px;
+	margin-top: 14px;
+	margin-left: 2.5em;
+	margin-right: 2.5em;
+	background-color: white;
+	border-radius:5px;
+	display: inline-block;
+
+}
+.bleft {
+	float: left;
+
+}
+
+.bright {
+	float: right;
+
+}
+
+.title {
+	display: inline-block;
+	background-color: white;
+	margin: 0 auto;
+}
+
+.test {
+	margin: 0 auto;
+}
