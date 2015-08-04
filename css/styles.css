@@ -1,5 +1,5 @@
 html {
-	font-family: oswald;
+	font-family: 'oswald', sans-serif;
 
 }
 body {
@@ -34,6 +34,8 @@ text-align: center;
 	border-radius:5px;
 	display: inline-block;
 	font-size: 1em;
+	letter-spacing: 1px
+
 
 }
 .bleft {
@@ -49,9 +51,8 @@ text-align: center;
 .title {
 	clear: both;
 	display: inline-block;
-	/* background-color: white; */
 	margin: 0 auto;
-	margin-top: 13px;
+	margin-top: 7px;
 	width: 315px;
 	height: 43px;
 	border-radius: 20px;
@@ -61,5 +62,6 @@ text-align: center;
 	margin-top: 3px;
 	font-size: 2em;
 	color: white;
+	letter-spacing: 1.5px;
 }
 
