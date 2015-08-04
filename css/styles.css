@@ -1,3 +1,7 @@
+html {
+	font-family: oswald;
+
+}
 body {
 background-color: #3F51B5;
 }
@@ -24,9 +28,12 @@ text-align: center;
 	margin-top: 14px;
 	margin-left: 2.5em;
 	margin-right: 2.5em;
-	background-color: white;
+	background-color: #303F9F;
+	border: 1px solid white;
+	color: white;
 	border-radius:5px;
 	display: inline-block;
+	font-size: 1em;
 
 }
 .bleft {
@@ -42,7 +49,7 @@ text-align: center;
 .title {
 	clear: both;
 	display: inline-block;
-	background-color: white;
+	/* background-color: white; */
 	margin: 0 auto;
 	margin-top: 13px;
 	width: 315px;
@@ -51,7 +58,8 @@ text-align: center;
 }
 
 .titletext {
-	margin-top: 5px;
+	margin-top: 3px;
 	font-size: 2em;
+	color: white;
 }
 
