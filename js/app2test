@@ -1,0 +1,119 @@
+$(document).ready(function() {
+
+	var questionObj = {
+		question: ["Who discovered the contemporary model of DNA?","test"],
+		choices: ["Gregor Mendel", "Friedrich Miescher", "Rosaland Franklin", "Watson and Crick"],
+		answer: ["Watson and Crick"],
+		completed: false
+	};
+
+	var j = 0;
+
+	while (j === 0) {
+		var callQuestion = function () {
+			$("<div></div>").addClass("question").text(questionObj.question[j]).appendTo(".inner-wrap");
+			
+				for (var i = 0; i < questionObj.choices.length; i++) {
+					$("<div>"+questionObj.choices[i]+"</div>").addClass("answer").appendTo(".inner-wrap");
+				}
+
+		}
+
+	
+	callQuestion();
+		$(".answer").on("click", function() {
+		$('.select').removeClass('select');
+		$(this).toggleClass("select");
+		
+	});
+
+	var totalScore = 0;
+
+	$(".bstyle2").on("click", function() {
+		
+		console.log(totalScore);
+		var check = $(".inner-wrap").find(".select").text();
+		console.log(questionObj.answer);
+		if (check == questionObj.answer) {
+			totalScore += 1;
+			$(".score").text(totalScore);
+		}
+
+	});
+
+	$(".arrowright").on("click", function() {
+		$(".inner-wrap").text("");
+		alert('test');
+		callQuestion();
+
+	});
+
+	j++;
+	} //end while loop
+
+
+
+
+});
+
+//
+
+$(document).ready(function() {
+
+	var question1 = {
+		question: ["Who discovered the contemporary model of DNA?"],
+		choices: ["Gregor Mendel", "Friedrich Miescher", "Rosaland Franklin", "Watson and Crick"],
+		answer: ["Watson and Crick"],
+		completed: false
+	};
+
+	var j = 0;
+
+	while (j === 0) {
+		var callQuestion = function () {
+			$("<div></div>").addClass("question").text(question1.question).appendTo(".inner-wrap");
+			var populate = function() {
+				for (var i = 0; i < question1.choices.length; i++) {
+					$("<div>"+question1.choices[i]+"</div>").addClass("answer").appendTo(".inner-wrap");
+				}
+			};
+
+			populate();
+
+		}
+
+	j++;
+	callQuestion();
+
+	} //end while loop
+
+	$(".answer").on("click", function() {
+		$('.select').removeClass('select');
+		$(this).toggleClass("select");
+		
+	});
+
+	var totalScore = 0;
+
+	$(".bstyle2").on("click", function() {
+		
+		console.log(totalScore);
+		var check = $(".inner-wrap").find(".select").text();
+		console.log(question1.answer);
+		if (check == question1.answer) {
+			totalScore += 1;
+			$(".score").text(totalScore);
+		}
+
+	});
+
+	$(".arrowright").on("click", function() {
+		$(".inner-wrap").text("");
+		alert('test');
+		callQuestion();
+
+	});
+
+
+
+});

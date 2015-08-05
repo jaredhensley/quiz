@@ -28,27 +28,29 @@ $(document).ready(function() {
 	} //end while loop
 
 	$(".answer").on("click", function() {
-		if ($(this).not(".select")) {
-			$(this).toggleClass("select");
-		}
+		$('.select').removeClass('select');
+		$(this).toggleClass("select");
 	});
 
 var totalScore = 0;
 
-$(".bstyle2").on("click", function() {
-	
-	console.log(totalScore);
-		var check = $(this).closest(".select").text("test");
-		console.log(check);
+
+	$(".bstyle2").on("click", function() {
+			
+		console.log(totalScore);
+		var check = $(".inner-wrap").find(".select").text();
 		console.log(question1.answer);
 		if (check == question1.answer) {
-			alert('test');
 			totalScore += 1;
-			console.log(totalScore);
+			$(".score").text(totalScore);
 		}
+
+	});
+
+	$(".arrowright").on("click", function() {
+		$(".inner-wrap").html("");	
 	});
 
 
 
 });
-
