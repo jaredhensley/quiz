@@ -74,7 +74,7 @@ text-align: center;
 
 
 
-.intro-wrap {
+.inner-wrap {
 	width: 50%;
 	margin: 0 auto;
 	margin-top:6em;
@@ -88,6 +88,13 @@ text-align: center;
 	text-align: center;
 	letter-spacing: .6px;
 	font-size: 1.25em;
+}
+
+.question {
+	text-align: center;
+	letter-spacing: .6px;
+	font-size: 1.25em;
+	margin-bottom:.5em;
 }
 
 .intro-bottom {
@@ -115,4 +122,18 @@ text-align: center;
 	opacity:.6;
 	float: right;
 	margin-top:5em;
+}
+
+.answer {
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom:5px;
+	background-color: #3F51B5 ;
+	border-radius:10px;
+}
+
+.select {
+	background-color: beige;
+
 }
