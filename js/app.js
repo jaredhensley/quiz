@@ -7,9 +7,7 @@ $(document).ready(function() {
 		completed: false
 	};
 
-	var j = 0;
 
-	while (j === 0) {
 		var callQuestion = function () {
 			$("<div></div>").addClass("question").text(question1.question).appendTo(".inner-wrap");
 			var populate = function() {
@@ -22,24 +20,20 @@ $(document).ready(function() {
 
 		}
 
-	j++;
 	callQuestion();
 
-	} //end while loop
 
 	$(".answer").on("click", function() {
 		$('.select').removeClass('select');
 		$(this).toggleClass("select");
+		
 	});
 
-var totalScore = 0;
-
+	var totalScore = 0;
 
 	$(".bstyle2").on("click", function() {
-			
-		console.log(totalScore);
+		
 		var check = $(".inner-wrap").find(".select").text();
-		console.log(question1.answer);
 		if (check == question1.answer) {
 			totalScore += 1;
 			$(".score").text(totalScore);
@@ -48,7 +42,8 @@ var totalScore = 0;
 	});
 
 	$(".arrowright").on("click", function() {
-		$(".inner-wrap").html("");	
+		$(".inner-wrap").text("");
+
 	});
 
 
