@@ -25,25 +25,30 @@ $(document).ready(function() {
     completed: [false, false, false, false, false]
   };
 
-  var totalScore = 0;
-  var globalCounter = 0;
+  /*Global Variables*/
+
+  var totalScore = 0; // used to display score total at the botton of .inro-bottom div
+  var globalCounter = 0; // used to perform some funky logic. See  callQuestion function and arrow handlers
+  
+  /*question builder*/
 
   var callQuestion = function(number) {
     var j = number;
-    $("<div></div>").addClass("question").text(questions.question[j]).appendTo(".inner-wrap");
-    var populate = function() {
       globalCounter = number;
+    $("<div></div>").addClass("question").text(questions.question[j]).appendTo(".inner-wrap");
       for (var i = 0; i < questions.choices[i].length; i++) {
         $("<div>" + questions.choices[j][i] + "</div>").addClass("answer").appendTo(".inner-wrap");
       }
       return;
-    };
-    populate();
   }
+
+  /*higher order function*/
 
   var masterCallBack = function(number, callback) {
     callback(number);
   }
+
+  /*apply classes with jquery function*/
 
   var style = function() {
     $(".answer").on("click", function() {
@@ -52,22 +57,45 @@ $(document).ready(function() {
     });
   }
 
-  masterCallBack(0, callQuestion);
-  style();
+  /*creates a new game*/
+
+  var newGame = function () {
+	  masterCallBack(0, callQuestion);
+	  style(); // I have to call style here for now in order to get question to have my jquery click handler styles
+  }
+
+  /*this function generates the first question */
+
+ newGame();
+
+  /*submit answer handler, checks against question object using globalCounter*/ 
 
   $(".bstyle2").on("click", function() {
     var check = $(".inner-wrap").find(".select").text();
     if (check == questions.answer[globalCounter]) {
       totalScore += 1;
       $(".score").text(totalScore);
+    } else {
+    	console.log("wrong answer"); //temporary, will style an incorrect class on div
     }
-
   });
+
+/*  $(".arrowleft").on("click", function() {
+    $(".inner-wrap").html("");
+    console.log(globalCounter);
+    if (globalCounter < (questions.question.length - 1)) {
+      globalCounter -= 1;
+      masterCallBack(globalCounter, callQuestion);
+      style();
+    }
+  });*/
+
+	/*handles my right arrow, functional for now.  trying to apply similar logic to left arrow above*/
 
   $(".arrowright").on("click", function() {
     $(".inner-wrap").html("");
     console.log(globalCounter);
-    if (globalCounter < 4) {
+    if (globalCounter < (questions.question.length - 1)) {
       globalCounter += 1;
       masterCallBack(globalCounter, callQuestion);
       style();
@@ -75,6 +103,15 @@ $(document).ready(function() {
       $(".inner-wrap").html("Your score is " + totalScore);
 
     }
+  });
+
+  /*resets quiz*/
+
+  $(".bleft").on("click", function() {
+  	totalScore = 0;
+  	$(".score").html("");
+  	$(".inner-wrap").html("");
+  	newGame();
   });
 
 });
