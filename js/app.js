@@ -8,17 +8,17 @@ $(document).ready(function() {
 	};
 
 
-		var callQuestion = function () {
-			$("<div></div>").addClass("question").text(question1.question).appendTo(".inner-wrap");
-			var populate = function() {
-				for (var i = 0; i < question1.choices.length; i++) {
-					$("<div>"+question1.choices[i]+"</div>").addClass("answer").appendTo(".inner-wrap");
-				}
-			};
+	var callQuestion = function () {
+		$("<div></div>").addClass("question").text(question1.question).appendTo(".inner-wrap");
+		var populate = function() {
+			for (var i = 0; i < question1.choices.length; i++) {
+				$("<div>"+question1.choices[i]+"</div>").addClass("answer").appendTo(".inner-wrap");
+			}
+		};
 
-			populate();
+		populate();
 
-		}
+	}
 
 	callQuestion();
 
@@ -43,7 +43,6 @@ $(document).ready(function() {
 
 	$(".arrowright").on("click", function() {
 		$(".inner-wrap").text("");
-
 	});
 
 
