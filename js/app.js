@@ -25,15 +25,22 @@ $(document).ready(function() {
     completed: [false, false, false, false, false]
   };
 
-  /*Global Variables*/
+  /*
+  ***Global Variables***
+  *totalScore is used to display score total at the botton of .inro-bottom div
+  *globalCounter is used to perform some funky logic. See callQuestion function and arrow handlers
+  */
 
-  var totalScore = 0; // used to display score total at the botton of .inro-bottom div
-  var globalCounter = 0; // used to perform some funky logic. See  callQuestion function and arrow handlers
+  var totalScore = 0; 
+  var globalCounter = 0; 
   
-  /*question builder*/
+  /*
+  *question builder
+	funky logic, setting  var j  is set equal to number parameter that is actually an argument from my masterCallBack function
+  */
 
   var callQuestion = function(number) {
-    var j = number;
+    var j = number; 
       globalCounter = number;
     $("<div></div>").addClass("question").text(questions.question[j]).appendTo(".inner-wrap");
       for (var i = 0; i < questions.choices[i].length; i++) {
@@ -72,12 +79,16 @@ $(document).ready(function() {
 
   $(".bstyle2").on("click", function() {
     var check = $(".inner-wrap").find(".select").text();
-    if (check == questions.answer[globalCounter]) {
-      totalScore += 1;
-      $(".score").text(totalScore);
-    } else {
-    	console.log("wrong answer"); //temporary, will style an incorrect class on div
-    }
+    if (!questions.completed[globalCounter]) {
+	    console.log(questions.completed[globalCounter]);
+	    if (check == questions.answer[globalCounter]) {
+	      questions.completed[globalCounter] = true;
+	      totalScore += 1;
+	      $(".score").text(totalScore);
+	    } else {
+	    	console.log("wrong answer"); //temporary, will style an incorrect class on div
+	    }
+  	}
   });
 
 /*  $(".arrowleft").on("click", function() {
