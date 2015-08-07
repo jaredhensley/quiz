@@ -39,25 +39,6 @@ $(document).ready(function() {
   funky logic, setting  var j  is set equal to number parameter that is actually an argument from my masterCallBack function
   */
 
-  /*  function getQuestionData(currentQuestionNumber, questions){
-      var currentQuestion = [ questions.question[currentQuestionNumber], questions.choices[currentQuestionNumber], questions.answer[currentQuestionNumber] ];
-
-      return currentQuestion;
-
-    }
-
-    function displayCurrentQuestion(){
-      var currentQuestion = getQuestionData(currentQuestionNumber, questions);
-      //loop through data here, add to UI
-      // YEAH!!
-    }
-
-    function checkAnswer(){
-      if correct globalCounter++;
-
-      displayCurrentQuestion()
-    }*/
-
   var callQuestion = function(number) {
     var j = number;
     globalCounter = number;
@@ -138,6 +119,36 @@ $(document).ready(function() {
     newGame();
   });
 
-  newGame();
+  $(".start").on("click", function() {
+    $(".inner-wrap").html("");
+    $(this).css("display", "none");
+    newGame();
+
+  })
+  /*newGame();*/
 
 });
+
+
+
+
+// optinal and cleaner way to go about it from my mentor Tomas.  
+
+/*  function getQuestionData(currentQuestionNumber, questions){
+      var currentQuestion = [ questions.question[currentQuestionNumber], questions.choices[currentQuestionNumber], questions.answer[currentQuestionNumber] ];
+
+      return currentQuestion;
+
+    }
+
+    function displayCurrentQuestion(){
+      var currentQuestion = getQuestionData(currentQuestionNumber, questions);
+      //loop through data here, add to UI
+      // YEAH!!
+    }
+
+    function checkAnswer(){
+      if correct globalCounter++;
+
+      displayCurrentQuestion()
+    }*/
