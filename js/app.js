@@ -38,15 +38,33 @@ $(document).ready(function() {
   *question builder
 	funky logic, setting  var j  is set equal to number parameter that is actually an argument from my masterCallBack function
   */
+ 
+/*  function getQuestionData(currentQuestionNumber, questions){
+  	var currentQuestion = [ questions.question[currentQuestionNumber], questions.choices[currentQuestionNumber], questions.answer[currentQuestionNumber] ];
+
+  	return currentQuestion;
+
+  }
+
+  function displayCurrentQuestion(){
+  	var currentQuestion = getQuestionData(currentQuestionNumber, questions);
+  	//loop through data here, add to UI
+  	// YEAH!!
+  }
+
+  function checkAnswer(){
+  	if correct globalCounter++;
+
+  	displayCurrentQuestion()
+  }*/
 
   var callQuestion = function(number) {
     var j = number; 
-      globalCounter = number;
+     globalCounter = number;
     $("<div></div>").addClass("question").text(questions.question[j]).appendTo(".inner-wrap");
       for (var i = 0; i < questions.choices[i].length; i++) {
         $("<div>" + questions.choices[j][i] + "</div>").addClass("answer").appendTo(".inner-wrap");
       }
-      return;
   }
 
   /*higher order function*/
@@ -57,18 +75,18 @@ $(document).ready(function() {
 
   /*apply classes with jquery function*/
 
-  var style = function() {
-    $(".answer").on("click", function() {
+  
+    $(".inner-wrap").on("click",".answer", function() {
       $('.select').removeClass('select');
       $(this).toggleClass("select");
     });
-  }
+  
 
   /*creates a new game*/
 
   var newGame = function () {
-	  masterCallBack(0, callQuestion);
-	  style(); // I have to call style here for now in order to get question to have my jquery click handler styles
+	  masterCallBack(0, callQuestion); //can just call callQuestion...
+	   // I have to call style here for now in order to get question to have my jquery click handler styles
   }
 
   /*this function generates the first question */
@@ -80,39 +98,35 @@ $(document).ready(function() {
   $(".bstyle2").on("click", function() {
     var check = $(".inner-wrap").find(".select").text();
     if (!questions.completed[globalCounter]) {
-	    console.log(questions.completed[globalCounter]);
 	    if (check == questions.answer[globalCounter]) {
 	      questions.completed[globalCounter] = true;
 	      totalScore += 1;
 	      $(".score").text(totalScore);
+	      $('.arrowright').trigger('click');
 	    } else {
 	    	console.log("wrong answer"); //temporary, will style an incorrect class on div
 	    }
   	}
   });
 
-/*  $(".arrowleft").on("click", function() {
+  $(".arrowleft").on("click", function() {
     $(".inner-wrap").html("");
     console.log(globalCounter);
-    if (globalCounter < (questions.question.length - 1)) {
-      globalCounter -= 1;
+    if (globalCounter <= (questions.question.length - 1)) {
+      globalCounter--;
       masterCallBack(globalCounter, callQuestion);
-      style();
     }
-  });*/
+  });
 
 	/*handles my right arrow, functional for now.  trying to apply similar logic to left arrow above*/
 
-  $(".arrowright").on("click", function() {
+  $(".arrowright").on("click", function(j) {
     $(".inner-wrap").html("");
-    console.log(globalCounter);
     if (globalCounter < (questions.question.length - 1)) {
       globalCounter += 1;
       masterCallBack(globalCounter, callQuestion);
-      style();
     } else {
       $(".inner-wrap").html("Your score is " + totalScore);
-
     }
   });
 
