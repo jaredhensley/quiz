@@ -75,23 +75,20 @@ $(document).ready(function() {
 
   /*apply classes with jquery function*/
 
-  
     $(".inner-wrap").on("click",".answer", function() {
-      $('.select').removeClass('select');
-      $(this).toggleClass("select");
+      $(this).toggleClass("select").siblings().removeClass("select");
     });
   
-
   /*creates a new game*/
 
   var newGame = function () {
-	  masterCallBack(0, callQuestion); //can just call callQuestion...
-	   // I have to call style here for now in order to get question to have my jquery click handler styles
+	  masterCallBack(0, callQuestion); //can just call callQuestion(callback practice!)
+    $(".intro-bottom").show();
   }
 
   /*this function generates the first question */
 
- newGame();
+ 
 
   /*submit answer handler, checks against question object using globalCounter*/ 
 
@@ -104,10 +101,12 @@ $(document).ready(function() {
 	      $(".score").text(totalScore);
 	      $('.arrowright').trigger('click');
 	    } else {
-	    	console.log("wrong answer"); //temporary, will style an incorrect class on div
+	    	$(".inner-wrap").find(".select").addClass("incorrect"); //temporary, will style an incorrect class on div
 	    }
   	}
   });
+
+  /*handles my left arrow*/
 
   $(".arrowleft").on("click", function() {
     $(".inner-wrap").html("");
@@ -118,7 +117,7 @@ $(document).ready(function() {
     }
   });
 
-	/*handles my right arrow, functional for now.  trying to apply similar logic to left arrow above*/
+	/*handles my right arrow*/
 
   $(".arrowright").on("click", function(j) {
     $(".inner-wrap").html("");
@@ -127,6 +126,7 @@ $(document).ready(function() {
       masterCallBack(globalCounter, callQuestion);
     } else {
       $(".inner-wrap").html("Your score is " + totalScore);
+      $(".intro-bottom").hide();
     }
   });
 
@@ -138,5 +138,7 @@ $(document).ready(function() {
   	$(".inner-wrap").html("");
   	newGame();
   });
+
+  newGame();
 
 });

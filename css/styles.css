@@ -101,6 +101,7 @@ text-align: center;
 	margin: 0 auto;
 	margin-top: 2em;
 	text-align: center;
+	display: none;
 }
 
 .arrowleft {
@@ -137,4 +138,10 @@ text-align: center;
 .select {
 	background-color: beige;
 	color: black;
+}
+
+.incorrect {
+	background-color: red;
+	opacity: 0.6;
+
 }
