@@ -26,45 +26,45 @@ $(document).ready(function() {
   };
 
   /*
-  ***Global Variables***
-  *totalScore is used to display score total at the botton of .inro-bottom div
-  *globalCounter is used to perform some funky logic. See callQuestion function and arrow handlers
-  */
+   ***Global Variables***
+   *totalScore is used to display score total at the botton of .inro-bottom div
+   *globalCounter is used to perform some funky logic. See callQuestion function and arrow handlers
+   */
 
-  var totalScore = 0; 
-  var globalCounter = 0; 
-  
+  var totalScore = 0;
+  var globalCounter = 0;
+
   /*
   *question builder
-	funky logic, setting  var j  is set equal to number parameter that is actually an argument from my masterCallBack function
+  funky logic, setting  var j  is set equal to number parameter that is actually an argument from my masterCallBack function
   */
- 
-/*  function getQuestionData(currentQuestionNumber, questions){
-  	var currentQuestion = [ questions.question[currentQuestionNumber], questions.choices[currentQuestionNumber], questions.answer[currentQuestionNumber] ];
 
-  	return currentQuestion;
+  /*  function getQuestionData(currentQuestionNumber, questions){
+      var currentQuestion = [ questions.question[currentQuestionNumber], questions.choices[currentQuestionNumber], questions.answer[currentQuestionNumber] ];
 
-  }
+      return currentQuestion;
 
-  function displayCurrentQuestion(){
-  	var currentQuestion = getQuestionData(currentQuestionNumber, questions);
-  	//loop through data here, add to UI
-  	// YEAH!!
-  }
+    }
 
-  function checkAnswer(){
-  	if correct globalCounter++;
+    function displayCurrentQuestion(){
+      var currentQuestion = getQuestionData(currentQuestionNumber, questions);
+      //loop through data here, add to UI
+      // YEAH!!
+    }
 
-  	displayCurrentQuestion()
-  }*/
+    function checkAnswer(){
+      if correct globalCounter++;
+
+      displayCurrentQuestion()
+    }*/
 
   var callQuestion = function(number) {
-    var j = number; 
-     globalCounter = number;
+    var j = number;
+    globalCounter = number;
     $("<div></div>").addClass("question").text(questions.question[j]).appendTo(".inner-wrap");
-      for (var i = 0; i < questions.choices[i].length; i++) {
-        $("<div>" + questions.choices[j][i] + "</div>").addClass("answer").appendTo(".inner-wrap");
-      }
+    for (var i = 0; i < questions.choices[i].length; i++) {
+      $("<div>" + questions.choices[j][i] + "</div>").addClass("answer").appendTo(".inner-wrap");
+    }
   }
 
   /*higher order function*/
@@ -75,35 +75,34 @@ $(document).ready(function() {
 
   /*apply classes with jquery function*/
 
-    $(".inner-wrap").on("click",".answer", function() {
-      $(this).toggleClass("select").siblings().removeClass("select");
-    });
-  
+  $(".inner-wrap").on("click", ".answer", function() {
+    $(this).toggleClass("select").siblings().removeClass("select");
+  });
+
   /*creates a new game*/
 
-  var newGame = function () {
-	  masterCallBack(0, callQuestion); //can just call callQuestion(callback practice!)
+  var newGame = function() {
+    masterCallBack(0, callQuestion); //can just call callQuestion(callback practice!)
     $(".intro-bottom").show();
   }
 
   /*this function generates the first question */
 
- 
-
-  /*submit answer handler, checks against question object using globalCounter*/ 
+  /*submit answer handler, checks against question object using globalCounter*/
 
   $(".bstyle2").on("click", function() {
     var check = $(".inner-wrap").find(".select").text();
     if (!questions.completed[globalCounter]) {
-	    if (check == questions.answer[globalCounter]) {
-	      questions.completed[globalCounter] = true;
-	      totalScore += 1;
-	      $(".score").text(totalScore);
-	      $('.arrowright').trigger('click');
-	    } else {
-	    	$(".inner-wrap").find(".select").addClass("incorrect"); //temporary, will style an incorrect class on div
-	    }
-  	}
+      if (check == questions.answer[globalCounter]) {
+        questions.completed[globalCounter] = true;
+        totalScore += 1;
+        $(".score").text("Current Score: " + totalScore);
+        $('.arrowright').trigger('click');
+      } else {
+        $(".inner-wrap").find(".select").addClass("incorrect"); //temporary, will style an incorrect class on div
+        questions.completed[globalCounter] = true;
+      }
+    }
   });
 
   /*handles my left arrow*/
@@ -117,7 +116,7 @@ $(document).ready(function() {
     }
   });
 
-	/*handles my right arrow*/
+  /*handles my right arrow*/
 
   $(".arrowright").on("click", function(j) {
     $(".inner-wrap").html("");
@@ -125,7 +124,7 @@ $(document).ready(function() {
       globalCounter += 1;
       masterCallBack(globalCounter, callQuestion);
     } else {
-      $(".inner-wrap").html("Your score is " + totalScore);
+      $(".inner-wrap").css("text-align", "center").html("You answered a total of " + totalScore + " questions correctly.");
       $(".intro-bottom").hide();
     }
   });
@@ -133,10 +132,10 @@ $(document).ready(function() {
   /*resets quiz*/
 
   $(".bleft").on("click", function() {
-  	totalScore = 0;
-  	$(".score").html("");
-  	$(".inner-wrap").html("");
-  	newGame();
+    totalScore = 0;
+    $(".score").html("");
+    $(".inner-wrap").html("");
+    newGame();
   });
 
   newGame();

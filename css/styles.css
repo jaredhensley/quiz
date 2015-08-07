@@ -1,147 +1,142 @@
 html {
-	font-family: 'oswald', sans-serif;
-
+  font-family: 'oswald', sans-serif;
 }
+
 body {
-background-color: #3F51B5;
+  background-color: #3F51B5;
 }
 
 .container {
-	background-color: white;
-	height:31em;
-	width:53em;
-	margin: 8em auto;
-	border-radius:10px;
+  background-color: white;
+  height: 31em;
+  width: 53em;
+  margin: 8em auto;
+  border-radius: 10px;
 }
 
 .topbar {
-height: 69px;
-width: 53em;
-background-color: #303F9F;
-text-align: center;
-
+  height: 69px;
+  width: 53em;
+  background-color: #303F9F;
+  text-align: center;
 }
 
 .bstyle {
-	height: 41px;
-	width: 88px;
-	margin-top: 14px;
-	margin-left: 2.5em;
-	margin-right: 2.5em;
-	background-color: #303F9F;
-	border: 1.5px solid white;
-	color: white;
-	border-radius:5px;
-	display: inline-block;
-	font-size: 1em;
-	letter-spacing: 1px;
-
+  height: 41px;
+  width: 88px;
+  margin-top: 14px;
+  margin-left: 2.5em;
+  margin-right: 2.5em;
+  background-color: #303F9F;
+  border: 1.5px solid white;
+  color: white;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 1em;
+  letter-spacing: 1px;
 }
 
 .bstyle2 {
-	height: 41px;
-	width: 88px;	
-	color: #303F9F;
-	background-color: white;
-	border-radius: 5px;
+  height: 41px;
+  width: 88px;
+  color: #303F9F;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 1em;
 }
+
 .bleft {
-	float: left;
+  float: left;
+}
 
-} 
-
- .bright {
-	float: right;
-
-} 
+.bright {
+  float: right;
+}
 
 .title {
-	clear: both;
-	display: inline-block;
-	margin: 0 auto;
-	margin-top: 7px;
-	width: 315px;
-	height: 43px;
-	border-radius: 20px;
+  clear: both;
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 7px;
+  width: 315px;
+  height: 43px;
+  border-radius: 20px;
 }
 
 .titletext {
-	margin-top: 3px;
-	font-size: 2em;
-	color: white;
-	letter-spacing: 1.5px;
+  margin-top: 3px;
+  font-size: 2em;
+  color: white;
+  letter-spacing: 1.5px;
 }
 
-
-
 .inner-wrap {
-	width: 50%;
-	margin: 0 auto;
-	margin-top:6em;
-	padding:1em;
-	border: 1px dotted black;
-	background-color: #C5CAE9;
-	border-radius:5px;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 5em;
+  padding: 1em;
+  border: 1px dotted black;
+  background-color: #C5CAE9;
+  border-radius: 5px;
 }
 
 .intro {
-	text-align: center;
-	letter-spacing: .6px;
-	font-size: 1.25em;
+  text-align: center;
+  letter-spacing: .6px;
+  font-size: 1.25em;
 }
 
 .question {
-	text-align: center;
-	letter-spacing: .6px;
-	font-size: 1.25em;
-	margin-bottom:.5em;
+  text-align: center;
+  letter-spacing: .6px;
+  font-size: 1.1em;
+  margin-bottom: .5em;
 }
 
 .intro-bottom {
-	margin: 0 auto;
-	margin-top: 2em;
-	text-align: center;
-	display: none;
+  margin: 0 auto;
+  margin-top: 2em;
+  text-align: center;
+  display: none;
 }
 
 .arrowleft {
- margin-left: .575em;
- opacity: .6;
- float: left;
- margin-top:5em;
+  margin-left: .575em;
+  opacity: .6;
+  float: left;
+  margin-top: 5em;
 }
 
 .bcenter {
-	display: inline-block;
-	text-align: center;
-	margin: 0 auto;
-	text-align: center;
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .arrowright {
-	margin-right: .575em;
-	opacity:.6;
-	float: right;
-	margin-top:5em;
+  margin-right: .575em;
+  opacity: .6;
+  float: right;
+  margin-top: 5em;
 }
 
 .answer {
-	width: 50%;
-	text-align: center;
-	margin: 0 auto;
-	margin-bottom:5px;
-	background-color: #3F51B5 ;
-	border-radius:2px;
-	color: white;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  background-color: #3F51B5;
+  border-radius: 2px;
+  color: white;
 }
 
 .select {
-	background-color: beige;
-	color: black;
+  background-color: beige;
+  color: black;
 }
 
 .incorrect {
-	background-color: red;
-	opacity: 0.6;
-
+  background-color: red;
+  opacity: 0.6;
 }
