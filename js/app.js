@@ -42,9 +42,9 @@ $(document).ready(function() {
   var callQuestion = function(number) {
     var j = number;
     globalCounter = number;
-    $("<div></div>").addClass("question").text(questions.question[j]).appendTo(".inner-wrap");
+    $("<div></div>").fadeIn("slow").addClass("question").text(questions.question[j]).appendTo(".inner-wrap");
     for (var i = 0; i < questions.choices[i].length; i++) {
-      $("<div>" + questions.choices[j][i] + "</div>").addClass("answer").appendTo(".inner-wrap");
+      $("<div>" + questions.choices[j][i] + "</div>").fadeIn("slow").addClass("answer").appendTo(".inner-wrap");
     }
   }
 
@@ -80,7 +80,7 @@ $(document).ready(function() {
         $(".score").text("Current Score: " + totalScore);
         $('.arrowright').trigger('click');
       } else {
-        $(".inner-wrap").find(".select").addClass("incorrect"); //temporary, will style an incorrect class on div
+        $(".inner-wrap").find(".select").addClass("incorrect"); 
         questions.completed[globalCounter] = true;
       }
     }
@@ -89,11 +89,16 @@ $(document).ready(function() {
   /*handles my left arrow*/
 
   $(".arrowleft").on("click", function() {
-    $(".inner-wrap").html("");
     console.log(globalCounter);
-    if (globalCounter <= (questions.question.length - 1)) {
+    if (globalCounter < (questions.question.length)) {
+      if (globalCounter == 5) {
+        alert('test');
+      }
+      else if (globalCounter > 0) {
+      $(".inner-wrap").html("");
       globalCounter--;
       masterCallBack(globalCounter, callQuestion);
+    }
     }
   });
 
@@ -105,7 +110,8 @@ $(document).ready(function() {
       globalCounter += 1;
       masterCallBack(globalCounter, callQuestion);
     } else {
-      $(".inner-wrap").css("text-align", "center").html("You answered a total of " + totalScore + " questions correctly.");
+      globalCounter++;
+      $("<div></div>").fadeIn("slow").css("text-align", "center").html("You answered a total of " + totalScore + " questions correctly.").appendTo(".inner-wrap");
       $(".intro-bottom").hide();
     }
   });
@@ -116,17 +122,18 @@ $(document).ready(function() {
     totalScore = 0;
     $(".score").html("");
     $(".inner-wrap").html("");
+    $(".start").hide();
     newGame();
   });
+
+  /*starts quiz*/
 
   $(".start").on("click", function() {
     $(".inner-wrap").html("");
     $(this).css("display", "none");
     newGame();
-
   })
-  /*newGame();*/
-
+  
 });
 
 
