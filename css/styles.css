@@ -62,6 +62,23 @@ body {
 	text-align: center;
 }
 
+.next {
+	height: 41px;
+  width: 88px;
+  color: #303F9F;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  margin-top: 2em;
+  text-align: center;
+  display: none;
+}
+
+.nextbtn {
+	margin: 0 auto;
+	text-align: center;
+}
+
 .bleft {
   float: left;
 }

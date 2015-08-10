@@ -70,18 +70,18 @@ $(document).ready(function() {
   /*this function generates the first question */
 
   /*submit answer handler, checks against question object using globalCounter*/
-
   $(".bstyle2").on("click", function() {
     var check = $(".inner-wrap").find(".select").text();
     if (!questions.completed[globalCounter]) {
+      questions.completed[globalCounter] = true;
       if (check == questions.answer[globalCounter]) {
-        questions.completed[globalCounter] = true;
-        totalScore += 1;
+        
+        totalScore ++;
         $(".score").text("Current Score: " + totalScore);
         $('.arrowright').trigger('click');
       } else {
         $(".inner-wrap").find(".select").addClass("incorrect"); 
-        questions.completed[globalCounter] = true;
+        /*$('.arrowright').trigger('click');*/
       }
     }
   });
@@ -89,25 +89,23 @@ $(document).ready(function() {
   /*handles my left arrow*/
 
   $(".arrowleft").on("click", function() {
-    console.log(globalCounter);
     if (globalCounter < (questions.question.length)) {
-      if (globalCounter == 5) {
-        alert('test');
-      }
-      else if (globalCounter > 0) {
+      if (globalCounter > 0) {
       $(".inner-wrap").html("");
       globalCounter--;
       masterCallBack(globalCounter, callQuestion);
-    }
+      }
     }
   });
 
   /*handles my right arrow*/
 
   $(".arrowright").on("click", function(j) {
+    console.log(globalCounter);
     $(".inner-wrap").html("");
     if (globalCounter < (questions.question.length - 1)) {
-      globalCounter += 1;
+      console.log(globalCounter);
+      globalCounter++;
       masterCallBack(globalCounter, callQuestion);
     } else {
       globalCounter++;
