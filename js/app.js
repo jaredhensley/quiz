@@ -64,29 +64,36 @@ $(document).ready(function() {
   /*creates a new game*/
 
   var newGame = function() {
-    masterCallBack(0, callQuestion); //can just call callQuestion(callback practice!)
+    firstSubmission = true;
+    masterCallBack(0, callQuestion); 
     $(".intro-bottom").show();
     for (var i = 0; i < questions.question.length; i++) {
-      questions.question.completed = false;
+      questions.completed[i] = false;
     }
   }
 
   /*submit answer handler, checks against question object using globalCounter*/
 
   $(".bstyle2").on("click", function() {
-    var check = $(".inner-wrap").find(".select").text();
-    if (!questions.completed[globalCounter]) {
-      questions.completed[globalCounter] = true;
-      if (check == questions.answer[globalCounter]) {
-        
-        totalScore ++;
-        $(".score").text("Current Score: " + totalScore);
-        $('.arrowright').trigger('click');
-      } else {
-        $(".inner-wrap").find(".select").addClass("incorrect"); 
-        /*$('.arrowright').trigger('click');*/
+
+    if (firstSubmission === true) {
+      var check = $(".inner-wrap").find(".select").text();
+      if (!questions.completed[globalCounter]) {
+        questions.completed[globalCounter] = true;
+        if (check == questions.answer[globalCounter]) {
+          totalScore++;
+          $(".score").text("Current Score: " + totalScore);
+          $('.arrowright').trigger('click');
+        } else {
+          $(".inner-wrap").find(".select").addClass("incorrect");
+          firstSubmission = false;
+        }
       }
+    } else {
+      $('.arrowright').trigger('click');
+      firstSubmission = true;
     }
+
   });
 
   /*handles my left arrow*/
@@ -94,9 +101,9 @@ $(document).ready(function() {
   $(".arrowleft").on("click", function() {
     if (globalCounter < (questions.question.length)) {
       if (globalCounter > 0) {
-      $(".inner-wrap").html("");
-      globalCounter--;
-      masterCallBack(globalCounter, callQuestion);
+        $(".inner-wrap").html("");
+        globalCounter--;
+        masterCallBack(globalCounter, callQuestion);
       }
     }
   });
@@ -104,10 +111,8 @@ $(document).ready(function() {
   /*handles my right arrow*/
 
   $(".arrowright").on("click", function(j) {
-    console.log(globalCounter);
     $(".inner-wrap").html("");
     if (globalCounter < (questions.question.length - 1)) {
-      console.log(globalCounter);
       globalCounter++;
       masterCallBack(globalCounter, callQuestion);
     } else {
@@ -134,13 +139,10 @@ $(document).ready(function() {
     $(this).css("display", "none");
     newGame();
   })
-  
+
 });
 
-
-
-
-// optinal and cleaner way to go about it from my mentor Tomas P. @ Thinkful.  
+// optimal and cleaner way to go about it from my mentor Tomas P. @ Thinkful.  
 
 /*  function getQuestionData(currentQuestionNumber, questions){
       var currentQuestion = [ questions.question[currentQuestionNumber], questions.choices[currentQuestionNumber], questions.answer[currentQuestionNumber] ];
