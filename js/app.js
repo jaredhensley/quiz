@@ -26,35 +26,36 @@ $(document).ready(function() {
   };
 
   /*
-   ***Global Variables***
-   *totalScore is used to display score total at the botton of .inro-bottom div
-   *globalCounter is used to perform some funky logic. See callQuestion function and arrow handlers
-   */
+  globalCounter has a relationship with number argument from callQuestion function
+  */
 
   var totalScore = 0;
   var globalCounter = 0;
 
   /*
-  *question builder
-  funky logic, setting  var j  is set equal to number parameter that is actually an argument from my masterCallBack function
+  question builder
   */
 
   var callQuestion = function(number) {
     var j = number;
-    globalCounter = number;
+    globalCounter = number; // passing number param out of scope for further use
     $("<div></div>").fadeIn("slow").addClass("question").text(questions.question[j]).appendTo(".inner-wrap");
     for (var i = 0; i < questions.choices[i].length; i++) {
       $("<div>" + questions.choices[j][i] + "</div>").fadeIn("slow").addClass("answer").appendTo(".inner-wrap");
     }
   }
 
-  /*higher order function*/
+  /*
+  higher order function
+  */
 
   var masterCallBack = function(number, callback) {
     callback(number);
   }
 
-  /*apply classes with jquery function*/
+  /*
+  toggle select class with jquery function
+  */
 
   $(".inner-wrap").on("click", ".answer", function() {
     $(this).toggleClass("select").siblings().removeClass("select");
@@ -65,11 +66,13 @@ $(document).ready(function() {
   var newGame = function() {
     masterCallBack(0, callQuestion); //can just call callQuestion(callback practice!)
     $(".intro-bottom").show();
+    for (var i = 0; i < questions.question.length; i++) {
+      questions.question.completed = false;
+    }
   }
 
-  /*this function generates the first question */
-
   /*submit answer handler, checks against question object using globalCounter*/
+
   $(".bstyle2").on("click", function() {
     var check = $(".inner-wrap").find(".select").text();
     if (!questions.completed[globalCounter]) {
@@ -137,7 +140,7 @@ $(document).ready(function() {
 
 
 
-// optinal and cleaner way to go about it from my mentor Tomas.  
+// optinal and cleaner way to go about it from my mentor Tomas P. @ Thinkful.  
 
 /*  function getQuestionData(currentQuestionNumber, questions){
       var currentQuestion = [ questions.question[currentQuestionNumber], questions.choices[currentQuestionNumber], questions.answer[currentQuestionNumber] ];
@@ -156,4 +159,4 @@ $(document).ready(function() {
       if correct globalCounter++;
 
       displayCurrentQuestion()
-    }*/
+}*/
