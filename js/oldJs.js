@@ -74,7 +74,7 @@ $(document).ready(function() {
 
   /*submit answer handler, checks against question object using globalCounter*/
 
-  $(".reset").on("click", function() {
+  $(".bstyle2").on("click", function() {
 
     if (firstSubmission === true) {
       var check = $(".inner-wrap").find(".select").text();
@@ -124,7 +124,7 @@ $(document).ready(function() {
 
   /*resets quiz*/
 
-  $(".bleft").on("click", function() {
+  $(".reset").on("click", function() {
     totalScore = 0;
     $(".score").html("");
     $(".inner-wrap").html("");

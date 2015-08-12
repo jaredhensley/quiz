@@ -37,7 +37,7 @@ body {
   letter-spacing: 1px;
 }
 
-.bstyle2 {
+.submit {
   height: 41px;
   width: 88px;
   color: #303F9F;
@@ -79,7 +79,7 @@ body {
 	text-align: center;
 }
 
-.bleft {
+.reset {
   float: left;
 }
 
