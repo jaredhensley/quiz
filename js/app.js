@@ -42,7 +42,6 @@ $(document).ready(function() {
     bindUI: function() {
       $(".reset").on("click", quizApp.reset);
       $(".arrowleft").on("click", quizApp.prevQuestion);
-      $(".inner-wrap").on("click", quizApp.toggleSelect);
       $(".arrowright").on("click", quizApp.nextQuestion);
       $(".start").on("click", quizApp.startGame);
       $(".inner-wrap").on("click", ".answer", quizApp.toggleSelect);
